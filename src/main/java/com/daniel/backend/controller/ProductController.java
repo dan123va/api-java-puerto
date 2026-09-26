@@ -15,7 +15,7 @@ public class ProductController {
         
         Product product = new Product(
             "1",
-            "Coca Cola",
+            "producto 1",
             25.50
         );
 
