@@ -10,15 +10,25 @@ public class User {
     private String id;
 
     private String name;
-    private Double price;
+    private String paternalSurname;
+    private String maternalSurname;
+    private String email;
 
     public User() {
     }
 
-    public User(String id, String name, Double price) {
+    public User(
+        String id,
+        String name,
+        String paternalSurname,
+        String maternalSurname,
+        String email
+    ) {
         this.id = id;
         this.name = name;
-        this.price = price;
+        this.paternalSurname = paternalSurname;
+        this.maternalSurname = maternalSurname;
+        this.email = email;
     }
 
     public String getId() {
@@ -37,11 +47,27 @@ public class User {
         this.name = name;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getPaternalSurname() {
+        return paternalSurname;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPaternalSurname(String paternalSurname) {
+        this.paternalSurname = paternalSurname;
+    }
+
+    public String getMaternalSurname() {
+        return maternalSurname;
+    }
+
+    public void setMaternalSurname(String maternalSurname) {
+        this.maternalSurname = maternalSurname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

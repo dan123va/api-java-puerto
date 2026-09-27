@@ -43,7 +43,9 @@ public class UserService {
         User userToUpdate = existingUser.get();
 
         userToUpdate.setName(user.getName());
-        userToUpdate.setPrice(user.getPrice());
+        userToUpdate.setPaternalSurname(user.getPaternalSurname());
+        userToUpdate.setMaternalSurname(user.getMaternalSurname());
+        userToUpdate.setEmail(user.getEmail());
 
         User updatedUser = userRepository.save(userToUpdate);
 
@@ -56,7 +58,7 @@ public class UserService {
         }
 
         userRepository.deleteById(id);
-        
+
         return true;
     }
 }
