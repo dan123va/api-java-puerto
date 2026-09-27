@@ -2,9 +2,9 @@ package com.daniel.backend.controller;
 
 import com.daniel.backend.document.User;
 import com.daniel.backend.service.UserService;
-
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.http.ResponseEntity;
+import java.util.Optional;
 import java.util.List;
 
 @RestController
@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getUSers() {
+    public List<User> getUsers() {
         return userService.findAll();
     }
 
@@ -27,5 +27,46 @@ public class UserController {
             @RequestBody User user
     ) {
         return userService.save(user);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable String id) {
+        Optional<User> user = userService.findById(id);
+
+        if (!user.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(user.get());
+    }
+
+    @PutMapping("/{id}")
+        public ResponseEntity<User> updateUser(
+            @PathVariable String id,
+            @RequestBody User user
+    ) {
+
+        Optional<User> updatedUser =
+            userService.update(id, user);
+
+        if (!updatedUser.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(updatedUser.get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(
+            @PathVariable String id
+    ) {
+
+        boolean deleted = userService.deleteById(id);
+
+        if (!deleted) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.noContent().build();
     }
 }
