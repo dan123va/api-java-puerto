@@ -3,8 +3,8 @@ package com.daniel.backend.document;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "products")
-public class Product {
+@Document(collection = "users")
+public class User {
 
     @Id
     private String id;
@@ -12,10 +12,10 @@ public class Product {
     private String name;
     private Double price;
 
-    public Product() {
+    public User() {
     }
 
-    public Product(String id, String name, Double price) {
+    public User(String id, String name, Double price) {
         this.id = id;
         this.name = name;
         this.price = price;
