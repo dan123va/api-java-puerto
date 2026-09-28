@@ -14,7 +14,7 @@ services:
   backend:
     build: ./
     environment:
-      MONGODB_URI: ${MONGODB_URI:-mongodb://mongo:27017/liverpool_orders}
+      MONGODB_URI: mongodb://mongo:27017/liverpool_orders
       APP_CORS_ALLOWED_ORIGINS: http://localhost:3000
     ports:
       - "8080:8080"
