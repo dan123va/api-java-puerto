@@ -10,6 +10,8 @@ public class Order {
     @Id
     private String id;
 
+    private String userId;
+    private String name;
     private String productCode;
     private Integer quantity;
     private BigDecimal price;
@@ -19,13 +21,15 @@ public class Order {
     }
 
     public Order(
-        String id,
+        String userId,
+        String name,
         String productCode,
         Integer quantity,
         BigDecimal price,
         String orderStatus
     ) {
-        this.id = id;
+        this.userId = userId;
+        this.name = name;
         this.productCode = productCode;
         this.quantity = quantity;
         this.price = price;
@@ -38,6 +42,22 @@ public class Order {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getuserId() {
+        return userId;
+    }
+
+    public void setuserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getProductCode() {

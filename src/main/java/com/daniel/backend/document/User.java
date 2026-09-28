@@ -13,22 +13,23 @@ public class User {
     private String paternalSurname;
     private String maternalSurname;
     private String email;
+    private String shippingAddress;
 
     public User() {
     }
 
     public User(
-        String id,
         String name,
         String paternalSurname,
         String maternalSurname,
-        String email
+        String email,
+        String shippingAddress
     ) {
-        this.id = id;
         this.name = name;
         this.paternalSurname = paternalSurname;
         this.maternalSurname = maternalSurname;
         this.email = email;
+        this.shippingAddress = shippingAddress;
     }
 
     public String getId() {
@@ -69,5 +70,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 }
